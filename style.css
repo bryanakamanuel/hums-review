@@ -1,0 +1,328 @@
+/* Reset & Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Header & Nav */
+header {
+    background: #1a252f;
+    color: #fff;
+    padding: 3rem 1rem;
+    text-align: center; /* Memperbaiki typo sebelumnya */
+}
+
+nav {
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav .container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/* Main Content */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    margin: 2rem 0 1.5rem;
+    font-size: 1.5rem;
+    border-left: 4px solid #e67e22;
+    padding-left: 15px;
+}
+
+/* Review Card */
+.archive-list {
+    display: grid;
+    gap: 2rem;
+}
+
+.review-card {
+    background: #fff;
+    display: grid;
+    grid-template-columns: 100px 1fr; /* Layout dua kolom */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.review-info {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.category {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: #e67e22;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.review-info h3 {
+    margin: 0.5rem 0;
+}
+
+.review-info h3 a {
+    text-decoration: none;
+    color: #1a252f;
+}
+
+.review-info p {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.card-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.date {
+    font-size: 0.8rem;
+    color: #999;
+}
+
+.read-more {
+    font-size: 0.85rem;
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: #777;
+    font-size: 0.9rem;
+}
+
+/* Responsive (Untuk tampilan HP) */
+@media (max-width: 600px) {
+    .review-card {
+        grid-template-columns: 1fr; /* Jadi satu kolom kalau di HP */
+    }
+    .card-image {
+        height: 200px;
+    }
+}
+
+/* --- Tambahkan/Ganti Bagian Ini di style.css --- */
+
+/* 1. Pengaturan Kontainer Utama */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 5%; /* Gunakan persentase agar fleksibel di layar kecil */
+}
+
+/* 2. Layout Kartu Review (Desktop: Gambar Kiri, Teks Kanan) */
+.review-card {
+    background: #fff;
+    display: flex; /* Menggunakan flexbox untuk kemudahan responsif */
+    flex-direction: row; 
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: 0.3s ease;
+}
+
+.card-image {
+    flex: 0 0 250px; /* Lebar gambar tetap 250px di layar lebar */
+    height: auto;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ... Bagian Reset, Body, Header, dan Nav tetap sama ... */
+
+/* 1. Review Card - Menggunakan Flex agar lebih konsisten */
+.review-card {
+    background: #fff;
+    display: flex; 
+    flex-direction: row; /* Gambar di samping teks untuk layar lebar */
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+/* 2. Mengecilkan Gambar di Beranda */
+.card-image {
+    flex: 0 0 180px; /* Saya turunkan dari 250px ke 180px agar tidak terlalu besar */
+    background-color: #eee;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Menjaga proporsi gambar buku */
+    display: block;
+}
+
+.review-info {
+    padding: 1.2rem 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 3. Media Query Responsif */
+/* Ketika lebar layar di bawah 768px (HP/Tablet) */
+@media (max-width: 768px) {
+    .review-card {
+        flex-direction: row; /* Tetap menyamping, jangan ditumpuk ke bawah */
+        align-items: center;
+        gap: 10px;
+    }
+
+    .card-image {
+        flex: 0 0 100px; /* Ukuran gambar di HP jadi kecil (hanya 100px) */
+        height: 100px; /* Samakan tinggi dan lebar agar kotak */
+        margin-left: 10px; /* Beri jarak sedikit dari pinggir */
+    }
+
+    .card-image img {
+        border-radius: 8px; /* Beri sedikit lengkungan agar manis */
+    }
+
+    .review-info h3 {
+        font-size: 1rem; /* Judul ikut mengecil agar muat */
+    }
+
+    .review-info p {
+        display: none; /* Sembunyikan deskripsi panjang di HP agar ringkas */
+    }
+}
+/* Style Khusus Halaman Isi Blog */
+.main-image {
+    width: 100%;
+    max-width: 400px; /* Supaya gambar buku tidak memenuhi layar laptop */
+    height: auto;
+    border-radius: 12px;
+    margin: 1.5rem 0;
+    display: block;
+}
+
+.content p {
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+    color: #444;
+    text-align: justify; /* Agar tulisan rapi rata kanan-kiri */
+}
+/* --- Style Khusus Page Review --- */
+
+.container-review {
+    max-width: 700px; /* Lebih sempit agar enak dibaca */
+    margin: 0 auto;
+    padding: 2rem 5%;
+}
+
+.back-nav {
+    margin-bottom: 2rem;
+}
+
+.back-nav a {
+    text-decoration: none;
+    color: #e67e22;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.back-nav a:hover {
+    text-decoration: underline;
+}
+
+.single-post {
+    text-align: center; /* Membuat gambar dan judul ke tengah */
+}
+
+.image-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.post-image {
+    max-width: 200px; /* Ukuran gambar diatur agar pas (tidak terlalu raksasa) */
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.post-title {
+    font-size: 2rem;
+    color: #1a252f;
+    margin-bottom: 1.5rem;
+}
+
+.post-content {
+    text-align: justify; /* Review tetap rata kiri-kanan agar rapi */
+    line-height: 1.8;
+    color: #444;
+}
+
+/* Responsif untuk HP */
+@media (max-width: 480px) {
+    .post-title {
+        font-size: 1.5rem;
+    }
+    .post-image {
+        max-width: 200px; /* Lebih kecil lagi di HP */
+    }
+}
